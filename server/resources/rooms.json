@@ -1,0 +1,170 @@
+[
+    {
+        "name": "Business Suit",
+        "imageUrls": [
+            "https://images.oyoroomscdn.com/uploads/hotel_image/56303/medium/597f0e48823f8885.jpg",
+            "https://images.oyoroomscdn.com/uploads/hotel_image/56303/medium/06883e94ec59702e.jpg",
+            "https://images.oyoroomscdn.com/uploads/hotel_image/56303/medium/91dead74a5dffa61.jpg"
+        ],
+        "rentPerNight": 1000,
+        "type": "Delux",
+        "maxCount": 2,
+        "phoneNumber": "9989649278",
+        "currentBookings": [],
+        "description": "iuhsf uyfew fwefuw'fj yfgwflwfo wouhfo ohfw"
+    },
+    {
+        "name": "Standard Suit",
+        "imageUrls": [
+            "https://images.oyoroomscdn.com/uploads/hotel_image/56303/medium/597f0e48823f8885.jpg",
+            "https://images.oyoroomscdn.com/uploads/hotel_image/56303/medium/06883e94ec59702e.jpg",
+            "https://images.oyoroomscdn.com/uploads/hotel_image/56303/medium/91dead74a5dffa61.jpg"
+        ],
+        "rentPerNight": 500,
+        "type": "Non-Delux",
+        "maxCount": 2,
+        "phoneNumber": "9989649278",
+        "currentBookings": [],
+        "description": "iuhsf uyfew fwefuw'fj yfgwflwfo wouhfo ohfw"
+    },
+    {
+        "name": "Deluxe Suit",
+        "imageUrls": [
+            "https://images.oyoroomscdn.com/uploads/hotel_image/56303/medium/597f0e48823f8885.jpg",
+            "https://images.oyoroomscdn.com/uploads/hotel_image/56303/medium/06883e94ec59702e.jpg",
+            "https://images.oyoroomscdn.com/uploads/hotel_image/56303/medium/91dead74a5dffa61.jpg"
+        ],
+        "rentPerNight": 1500,
+        "type": "Delux",
+        "maxCount": 2,
+        "phoneNumber": "9989649278",
+        "currentBookings": [],
+        "description": "iuhsf uyfew fwefuw'fj yfgwflwfo wouhfo ohfw"
+    },
+    {
+        "name": "Duplex Suit",
+        "imageUrls": [
+            "https://images.oyoroomscdn.com/uploads/hotel_image/56303/medium/597f0e48823f8885.jpg",
+            "https://images.oyoroomscdn.com/uploads/hotel_image/56303/medium/06883e94ec59702e.jpg",
+            "https://images.oyoroomscdn.com/uploads/hotel_image/56303/medium/91dead74a5dffa61.jpg"
+        ],
+        "rentPerNight": 2500,
+        "type": "Non-Delux",
+        "maxCount": 6,
+        "phoneNumber": "9989649278",
+        "currentBookings": [],
+        "description": "iuhsf uyfew fwefuw'fj yfgwflwfo wouhfo ohfw"
+    },
+    {
+        "name": "Regular Suit",
+        "imageUrls": [
+            "https://images.oyoroomscdn.com/uploads/hotel_image/56303/medium/597f0e48823f8885.jpg",
+            "https://images.oyoroomscdn.com/uploads/hotel_image/56303/medium/06883e94ec59702e.jpg",
+            "https://images.oyoroomscdn.com/uploads/hotel_image/56303/medium/91dead74a5dffa61.jpg"
+        ],
+        "rentPerNight": 1000,
+        "type": "Non-Delux",
+        "maxCount": 3,
+        "phoneNumber": "9989649278",
+        "currentBookings": [],
+        "description": "iuhsf uyfew fwefuw'fj yfgwflwfo wouhfo ohfw"
+    },
+    {
+        "name": "Classic Suit",
+        "imageUrls": [
+            "https://images.oyoroomscdn.com/uploads/hotel_image/56303/medium/597f0e48823f8885.jpg",
+            "https://images.oyoroomscdn.com/uploads/hotel_image/56303/medium/06883e94ec59702e.jpg",
+            "https://images.oyoroomscdn.com/uploads/hotel_image/56303/medium/91dead74a5dffa61.jpg"
+        ],
+        "rentPerNight": 1000,
+        "type": "Non-Delux",
+        "maxCount": 4,
+        "phoneNumber": "9989649278",
+        "currentBookings": [],
+        "description": "iuhsf uyfew fwefuw'fj yfgwflwfo wouhfo ohfw"
+    },
+    {
+        "name": "Honeymoon Suit",
+        "imageUrls": [
+            "https://images.oyoroomscdn.com/uploads/hotel_image/56303/medium/597f0e48823f8885.jpg",
+            "https://images.oyoroomscdn.com/uploads/hotel_image/56303/medium/06883e94ec59702e.jpg",
+            "https://images.oyoroomscdn.com/uploads/hotel_image/56303/medium/91dead74a5dffa61.jpg"
+        ],
+        "rentPerNight": 5000,
+        "type": "Delux",
+        "maxCount": 2,
+        "phoneNumber": "9989649278",
+        "currentBookings": [],
+        "description": "iuhsf uyfew fwefuw'fj yfgwflwfo wouhfo ohfw"
+    },
+    {
+        "name": "King Suit",
+        "imageUrls": [
+            "https://images.oyoroomscdn.com/uploads/hotel_image/56303/medium/597f0e48823f8885.jpg",
+            "https://images.oyoroomscdn.com/uploads/hotel_image/56303/medium/06883e94ec59702e.jpg",
+            "https://images.oyoroomscdn.com/uploads/hotel_image/56303/medium/91dead74a5dffa61.jpg"
+        ],
+        "rentPerNight": 2000,
+        "type": "Delux",
+        "maxCount": 4,
+        "phoneNumber": "9989649278",
+        "currentBookings": [],
+        "description": "iuhsf uyfew fwefuw'fj yfgwflwfo wouhfo ohfw"
+    },
+    {
+        "name": "President Suit",
+        "imageUrls": [
+            "https://images.oyoroomscdn.com/uploads/hotel_image/56303/medium/597f0e48823f8885.jpg",
+            "https://images.oyoroomscdn.com/uploads/hotel_image/56303/medium/06883e94ec59702e.jpg",
+            "https://images.oyoroomscdn.com/uploads/hotel_image/56303/medium/91dead74a5dffa61.jpg"
+        ],
+        "rentPerNight": 15000,
+        "type": "Delux",
+        "maxCount": 8,
+        "phoneNumber": "9989649278",
+        "currentBookings": [],
+        "description": "iuhsf uyfew fwefuw'fj yfgwflwfo wouhfo ohfw"
+    },
+    {
+        "name": "Queen Suit",
+        "imageUrls": [
+            "https://images.oyoroomscdn.com/uploads/hotel_image/56303/medium/597f0e48823f8885.jpg",
+            "https://images.oyoroomscdn.com/uploads/hotel_image/56303/medium/06883e94ec59702e.jpg",
+            "https://images.oyoroomscdn.com/uploads/hotel_image/56303/medium/91dead74a5dffa61.jpg"
+        ],
+        "rentPerNight": 1500,
+        "type": "Delux",
+        "maxCount": 3,
+        "phoneNumber": "9989649278",
+        "currentBookings": [],
+        "description": "iuhsf uyfew fwefuw'fj yfgwflwfo wouhfo ohfw"
+    },
+    {
+        "name": "Villa Suit",
+        "imageUrls": [
+            "https://images.oyoroomscdn.com/uploads/hotel_image/56303/medium/597f0e48823f8885.jpg",
+            "https://images.oyoroomscdn.com/uploads/hotel_image/56303/medium/06883e94ec59702e.jpg",
+            "https://images.oyoroomscdn.com/uploads/hotel_image/56303/medium/91dead74a5dffa61.jpg"
+        ],
+        "rentPerNight": 2000,
+        "type": "Non-Delux",
+        "maxCount": 4,
+        "phoneNumber": "9989649278",
+        "currentBookings": [],
+        "description": "iuhsf uyfew fwefuw'fj yfgwflwfo wouhfo ohfw"
+    },
+    {
+        "name": "VIP Suit",
+        "imageUrls": [
+            "https://images.oyoroomscdn.com/uploads/hotel_image/56303/medium/597f0e48823f8885.jpg",
+            "https://images.oyoroomscdn.com/uploads/hotel_image/56303/medium/06883e94ec59702e.jpg",
+            "https://images.oyoroomscdn.com/uploads/hotel_image/56303/medium/91dead74a5dffa61.jpg"
+        ],
+        "rentPerNight": 3000,
+        "type": "Delux",
+        "maxCount": 2,
+        "phoneNumber": "9989649278",
+        "currentBookings": [],
+        "description": "iuhsf uyfew fwefuw'fj yfgwflwfo wouhfo ohfw"
+    }
+]
