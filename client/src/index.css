@@ -26,6 +26,11 @@ nav a {
   border-radius: 5px;
 }
 
+.bigimg {
+  height: 400px;
+  border-radius: 5px;
+}
+
 .btn {
   background: black;
 }
