@@ -22,9 +22,9 @@ export const HomeScreen = () => {
         fetchData()
     }, [])
     return (
-        <div className="row">
+        <div className="row justify-content-center mt-5">
             {loading ? (<h2>Loading...</h2>) : error ? (<h2>Error</h2>) : (rooms.map(room => {
-                return <div className="col-md-9"><Room room = {room} /></div>
+                return <div className="col-md-9 mt-2"><Room room = {room} /></div>
             }))}
         </div>
     )
