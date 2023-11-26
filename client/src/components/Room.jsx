@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Modal, Button, Carousel } from 'react-bootstrap'
+import { Link } from "react-router-dom";
 export const Room = ({ room }) => {
     const [show, setShow] = useState(false);
 
@@ -16,7 +17,8 @@ export const Room = ({ room }) => {
                 <p>Phone: {room.phoneNumber}</p>
                 <p>Type: {room.type}</p>
                 <div style={{ float: 'right' }}>
-                    <button className="btn btn-primary" onClick={handleShow}>View Details</button>
+                <Link to={`/book/${room._id}`}><button className="btn btn-primary">Book now</button></Link>
+                    <button className="btn btn-primary ms-2" onClick={handleShow}>View Details</button>
                 </div>
             </div>
             <Modal show={show} onHide={handleClose} size="lg">

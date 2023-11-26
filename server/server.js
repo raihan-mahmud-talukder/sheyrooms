@@ -2,9 +2,15 @@ const express = require('express')
 
 const app = express()
 
+// const cors = require('cors')
+
 const dbConfig = require('./db')
 
 const roomsRoute = require('./routes/roomsRoute')
+
+// app.use(express.json)
+
+// app.use(cors())
 
 app.use('/api/rooms', roomsRoute)
 
