@@ -1,6 +1,8 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import { Loader } from "../components/Loader"
+import { Error } from "../components/Error"
 
 export const BookingScreen = () => {
     const { roomid } = useParams('')
@@ -22,9 +24,10 @@ export const BookingScreen = () => {
         }
         fetchData()
     }, [])
+    console.log(room)
     return (
         <div className="cart mt-5">
-            {loading ? (<h2>Loading...</h2>) : error ? (<h2>Error</h2>) : (
+            {loading ? <Loader /> : room ? (
                 <div className="row justify-content-center">
                     <div className="col-md-6">
                         <h3>{room.name}</h3>
@@ -47,7 +50,7 @@ export const BookingScreen = () => {
                         <button className="btn btn-primary">Pay Now</button>
                     </div>
                 </div>
-            )}
+            ) : <Error />}
         </div>
     )
 }
