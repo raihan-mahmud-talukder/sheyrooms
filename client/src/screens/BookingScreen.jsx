@@ -24,7 +24,6 @@ export const BookingScreen = () => {
         }
         fetchData()
     }, [])
-    console.log(room)
     return (
         <div className="cart mt-5">
             {loading ? <Loader /> : room ? (
