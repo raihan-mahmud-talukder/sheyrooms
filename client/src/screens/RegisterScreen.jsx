@@ -1,4 +1,5 @@
 import { useState } from "react"
+import axios from 'axios'
 
 export const RegisterScreen = () => {
     const [name, setName] = useState('')
@@ -6,12 +7,14 @@ export const RegisterScreen = () => {
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
 
-    const register = () => {
+    const register = async () => {
         if (password == confirmPassword) {
             const user = {
                 name, email, password, confirmPassword
             }
-            console.log(user)
+            try {
+                const result = (await axios.post('/api/users/register', user)).data
+            } catch (error) {console.log(error)}
         } else {alert('Passwords not matched!')}
     }
     return (

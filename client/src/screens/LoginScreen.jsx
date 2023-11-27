@@ -1,13 +1,17 @@
 import { useState } from "react"
+import axios from 'axios'
 
 export const LoginScreen = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-    const login = () => {
+    const login = async () => {
         const user = {
             email, password
         }
+        try {
+            const result = (await axios.post('/api/users/login', user)).data
+        } catch (error) { console.log(error) }
         console.log(user)
     }
     return (
