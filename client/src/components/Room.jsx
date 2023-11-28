@@ -17,7 +17,9 @@ export const Room = ({ room, checkin, checkout }) => {
                 <p>Phone: {room.phoneNumber}</p>
                 <p>Type: {room.type}</p>
                 <div style={{ float: 'right' }}>
-                    <Link to={`/book/${room._id}/${checkin}/${checkout}`}><button className="btn btn-primary">Book now</button></Link>
+                    {(checkin && checkout) &&
+                        <Link to={`/book/${room._id}/${checkin}/${checkout}`}><button className="btn btn-primary">Book now</button></Link>
+                    }
                     <button className="btn btn-primary ms-2" onClick={handleShow}>View Details</button>
                 </div>
             </div>
