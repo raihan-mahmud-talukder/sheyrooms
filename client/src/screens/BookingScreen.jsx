@@ -14,6 +14,7 @@ export const BookingScreen = () => {
     const checkIn = moment(checkin, 'DD-MM-YYYY')
     const checkOut = moment(checkout, 'DD-MM-YYYY')
     const days = moment.duration(checkOut.diff(checkIn)).asDays() + 1
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -49,7 +50,7 @@ export const BookingScreen = () => {
                             <h4>Amount</h4><hr />
                             <p>Total Days: {days}</p>
                             <p>Rent Per Day: {room.rentPerNight}</p>
-                            <p>Total Amount: </p>
+                            <p>Total Amount: {room.rentPerNight * days}</p>
                         </div>
                         <button className="btn btn-primary">Pay Now</button>
                     </div>
