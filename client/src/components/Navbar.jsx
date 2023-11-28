@@ -14,13 +14,13 @@ export const Navbar = () => {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav ms-auto me-5">
                         {user ? (
-                            <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div className="dropdown">
+                                <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     {user.name}
                                 </button>
-                                <ul class="dropdown-menu dropdown-menu-dark">
-                                    <li><a class="dropdown-item" href="#">Bookings</a></li>
-                                    <li><a class="dropdown-item" href="#" onClick={logout}>Logout</a></li>
+                                <ul className="dropdown-menu dropdown-menu-dark">
+                                    <li><a className="dropdown-item" href="#">Bookings</a></li>
+                                    <li><a className="dropdown-item" href="#" onClick={logout}>Logout</a></li>
                                 </ul>
                             </div>
                         ) : (
