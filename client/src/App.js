@@ -11,7 +11,7 @@ export const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/home" element={<HomeScreen />} />
-          <Route path="/book/:roomid" element={<BookingScreen />} />
+          <Route path="/book/:roomid/:checkin/:checkout" element={<BookingScreen />} />
           <Route path='/login' element = {<LoginScreen />} />
           <Route path='/register' element = {<RegisterScreen />} />
         </Routes>

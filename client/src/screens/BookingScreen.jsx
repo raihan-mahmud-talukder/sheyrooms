@@ -3,12 +3,17 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { Loader } from "../components/Loader"
 import { Error } from "../components/Error"
+import moment from "moment"
 
 export const BookingScreen = () => {
-    const { roomid } = useParams('')
+    const { roomid, checkin, checkout } = useParams()
     const [room, setRoom] = useState()
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState()
+
+    const checkIn = moment(checkin, 'DD-MM-YYYY')
+    const checkOut = moment(checkout, 'DD-MM-YYYY')
+    const days = moment.duration(checkOut.diff(checkIn)).asDays() + 1
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -36,13 +41,13 @@ export const BookingScreen = () => {
                         <div>
                             <h4>Booking Details</h4><hr />
                             <p>Name: </p>
-                            <p>From Date:</p>
-                            <p>To Date:</p>
+                            <p>From Date: {checkin}</p>
+                            <p>To Date: {checkout}</p>
                             <p>Max Count: {room.maxCount}</p>
                         </div>
                         <div>
                             <h4>Amount</h4><hr />
-                            <p>Total Days:</p>
+                            <p>Total Days: {days}</p>
                             <p>Rent Per Day: {room.rentPerNight}</p>
                             <p>Total Amount: </p>
                         </div>

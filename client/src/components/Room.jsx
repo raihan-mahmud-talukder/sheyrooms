@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Modal, Button, Carousel } from 'react-bootstrap'
 import { Link } from "react-router-dom";
-export const Room = ({ room }) => {
+export const Room = ({ room, checkin, checkout }) => {
     const [show, setShow] = useState(false);
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
     return (
         <div className="row room">
             <div className="col-md-4">
@@ -17,7 +17,7 @@ export const Room = ({ room }) => {
                 <p>Phone: {room.phoneNumber}</p>
                 <p>Type: {room.type}</p>
                 <div style={{ float: 'right' }}>
-                <Link to={`/book/${room._id}`}><button className="btn btn-primary">Book now</button></Link>
+                    <Link to={`/book/${room._id}/${checkin}/${checkout}`}><button className="btn btn-primary">Book now</button></Link>
                     <button className="btn btn-primary ms-2" onClick={handleShow}>View Details</button>
                 </div>
             </div>
