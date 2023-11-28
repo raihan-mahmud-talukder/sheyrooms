@@ -1,7 +1,5 @@
-export const Error = () => {
+export const Error = ({ message }) => {
   return (
-    <div className="alert alert-danger" role="alert">
-        Something went wrong, please try again later
-    </div>
+    <div className="alert alert-danger" role="alert">{message}</div>
   )
 }

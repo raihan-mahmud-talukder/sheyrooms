@@ -14,7 +14,7 @@ export const RegisterScreen = () => {
     const [success, setSucces] = useState()
 
     const register = async () => {
-        if (password == confirmPassword) {
+        if (password === confirmPassword) {
             const user = {
                 name, email, password, confirmPassword
             }
