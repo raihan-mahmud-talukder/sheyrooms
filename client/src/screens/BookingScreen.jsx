@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { Loader } from "../components/Loader"
 import { Error } from "../components/Error"
+import StripeCheckout from 'react-stripe-checkout'
 import moment from "moment"
 
 export const BookingScreen = () => {
@@ -16,6 +17,7 @@ export const BookingScreen = () => {
     const checkOut = moment(checkout, 'DD-MM-YYYY')
     const days = moment.duration(checkOut.diff(checkIn)).asDays() + 1
     const user = JSON.parse(localStorage.getItem('currentUser'))
+    const clientKey = 'pk_test_51OHpwDAQGIQYXRjhC0POSJmj8TZeI2gYYfjaT5519G3FVwZTPZgtkzvynRuKXe7DNGYs2cAjMyNVsDqJUlHtlaob009k9O137T'
 
     useEffect(() => {
         const fetchData = async () => {
@@ -34,16 +36,16 @@ export const BookingScreen = () => {
         fetchData()
     }, [])
 
-    const bookRoom = async () => {
+    const onToken = async token => {
+        console.log(token)
         const bookingDetails = {
-            room, checkIn, checkOut, amount, days, userId: user._id
+            room, checkIn, checkOut, amount, days, userId: user._id, token
         }
         try {
             const result = (await axios.post('/api/bookings/bookroom', bookingDetails)).data
         }
         catch (error) { console.log(error) }
     }
-
     return (
         <div className="cart mt-5">
             {loading ? <Loader /> : room ? (
@@ -66,7 +68,14 @@ export const BookingScreen = () => {
                             <p>Rent Per Day: {room.rentPerNight}</p>
                             <p>Total Amount: {room.rentPerNight * days}</p>
                         </div>
-                        <button className="btn btn-primary" onClick={bookRoom}>Pay Now</button>
+                        <StripeCheckout
+                            token={onToken}
+                            stripeKey={clientKey}
+                            currency="BDT"
+                            amount={amount * 100}
+                        >
+                            <button className="btn btn-primary">Pay Now</button>
+                        </StripeCheckout>
                     </div>
                 </div>
             ) : <Error />}
