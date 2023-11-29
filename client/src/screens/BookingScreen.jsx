@@ -42,7 +42,7 @@ export const BookingScreen = () => {
             room, checkIn, checkOut, amount, days, userId: user._id, token
         }
         try {
-            const result = (await axios.post('/api/bookings/bookroom', bookingDetails)).data
+            const result = (await axios.post('/api/bookings/bookroom', bookingDetails))
         }
         catch (error) { console.log(error) }
     }
