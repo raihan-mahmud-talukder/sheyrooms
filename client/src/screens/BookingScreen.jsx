@@ -5,6 +5,7 @@ import { Loader } from "../components/Loader"
 import { Error } from "../components/Error"
 import StripeCheckout from 'react-stripe-checkout'
 import moment from "moment"
+import Swal from 'sweetalert2'
 
 export const BookingScreen = () => {
     const { roomid, checkin, checkout } = useParams()
@@ -42,9 +43,18 @@ export const BookingScreen = () => {
             room, checkIn, checkOut, amount, days, userId: user._id, token
         }
         try {
-            const result = (await axios.post('/api/bookings/bookroom', bookingDetails))
+            setLoading(true)
+            const result = await axios.post('/api/bookings/bookroom', bookingDetails)
+            setLoading(false)
+            Swal.fire('Congratulations', 'Room has been booked Successfully', 'success').then(result => {
+                window.location.href = '/bookings'
+            })
         }
-        catch (error) { console.log(error) }
+        catch (error) {
+            setLoading(false)
+            console.log(error)
+            Swal.fire('Oops', 'Something went wrong', 'error')
+        }
     }
     return (
         <div className="cart mt-5">
