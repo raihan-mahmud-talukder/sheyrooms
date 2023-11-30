@@ -19,7 +19,7 @@ export const Navbar = () => {
                                     {user.name}
                                 </button>
                                 <ul className="dropdown-menu dropdown-menu-dark">
-                                    <li><a className="dropdown-item" href="#">Bookings</a></li>
+                                    <li><a className="dropdown-item" href="/bookings">Bookings</a></li>
                                     <li><a className="dropdown-item" href="#" onClick={logout}>Logout</a></li>
                                 </ul>
                             </div>
