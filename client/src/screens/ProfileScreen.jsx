@@ -47,6 +47,14 @@ export const MyBooking = () => {
     }
     fetchData()
   }, [])
+
+  const cancelBooking = async (bookingid, roomid) => {
+    try {
+      setLoading(true)
+      const result = (await axios.post('/api/cancelbooking', { bookingid, roomid })).data
+      console.log(result)
+    } catch (error) { console.log(error) }
+  }
   return (
     <div className="row">
       <h3>Bookings</h3>
@@ -61,7 +69,10 @@ export const MyBooking = () => {
               <p><b>Check Out:</b> {booking.checkOut}</p>
               <p><b>Amount:</b> {booking.amount}</p>
               <p><b>Status:</b> {booking.status == 'booked' ? 'CONFIRMED' : 'cANCELLED'}</p>
-              <button className="btn btn-primary">Cancel Booking</button>
+              <button
+                className="btn btn-primary"
+                onClick={() => { cancelBooking(booking._id, booking.roomid) }}
+              >Cancel Booking</button>
             </div>
           )
         })}
