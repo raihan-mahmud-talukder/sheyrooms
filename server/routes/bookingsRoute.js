@@ -44,4 +44,13 @@ router.post('/bookroom', async (req, res) => {
     } catch (error) { console.log(error) }
 })
 
+router.post('/getbookingsbyuserid', async (req, res) => {
+    const userId = req.body.userId
+
+    try {
+        const bookings = await Booking.find({ userId: userId })
+        res.send(bookings)
+    } catch (error) { console.log(error) }
+})
+
 module.exports = router
