@@ -59,3 +59,14 @@ nav a {
 .login input, .login button {
   margin: 1rem 0;
 }
+
+.booking {
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.booking button {
+  float: right;
+  margin: -2rem 0;
+}
