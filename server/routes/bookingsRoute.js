@@ -53,4 +53,19 @@ router.post('/getbookingsbyuserid', async (req, res) => {
     } catch (error) { console.log(error) }
 })
 
+router.post('/cancelbooking', async (req, res) => {
+    const { bookingId, roomId } = req.body
+
+    try {
+        const bookingItem = await Booking.findOne({ _id: bookingId })
+        bookingItem.status = 'cancelled'
+        await bookingItem.save()
+        const room = await Room.findOne({ _id: roomId })
+        const bookings = room.currentBookings
+        const temp = bookings.filter(booking => booking.bookingId.toString() !== bookingId)
+        room.currentBookings = temp
+        await room.save()
+        res.send('Your booking cancelled successfully!')
+    } catch (error) { console.log(error) }
+})
 module.exports = router

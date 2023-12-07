@@ -2,6 +2,9 @@ import { Tabs } from "antd"
 import { useEffect, useState } from "react"
 import axios from 'axios'
 import { Loader } from "../components/Loader"
+import Swal from 'sweetalert2'
+import { Tag, Divider} from 'antd'
+
 const { TabPane } = Tabs
 const user = JSON.parse(localStorage.getItem('currentUser'))
 
@@ -36,7 +39,6 @@ export const MyBooking = () => {
       try {
         setLoading(true)
         const data = (await axios.post('/api/bookings/getbookingsbyuserid', { userId: user._id })).data
-        console.log(data)
         setBookings(data)
         setLoading(false)
       } catch (error) {
@@ -48,12 +50,20 @@ export const MyBooking = () => {
     fetchData()
   }, [])
 
-  const cancelBooking = async (bookingid, roomid) => {
+  const cancelBooking = async (bookingId, roomId) => {
     try {
       setLoading(true)
-      const result = (await axios.post('/api/cancelbooking', { bookingid, roomid })).data
+      const result = (await axios.post('/api/bookings/cancelbooking', { bookingId, roomId })).data
       console.log(result)
-    } catch (error) { console.log(error) }
+      setLoading(false)
+      Swal.fire('Congrats', 'Your booking has been cancelled!', 'success').then(result => {
+        window.location.reload()
+      })
+    } catch (error) {
+      console.log(error)
+      setLoading(false)
+      Swal.fire('Oops', 'Something went wrong', 'error')
+    }
   }
   return (
     <div className="row">
@@ -68,10 +78,11 @@ export const MyBooking = () => {
               <p><b>Check In:</b> {booking.checkIn}</p>
               <p><b>Check Out:</b> {booking.checkOut}</p>
               <p><b>Amount:</b> {booking.amount}</p>
-              <p><b>Status:</b> {booking.status == 'booked' ? 'CONFIRMED' : 'cANCELLED'}</p>
+              <p><b>Status:</b> {booking.status == 'booked' ? <Tag color="green">CONFIRMED</Tag> : <Tag color="red">CANCELLED</Tag>}</p>
               <button
                 className="btn btn-primary"
-                onClick={() => { cancelBooking(booking._id, booking.roomid) }}
+                style={{ display: booking.status === 'cancelled' ? 'none' : '' }}
+                onClick={() => { cancelBooking(booking._id, booking.roomId) }}
               >Cancel Booking</button>
             </div>
           )

@@ -47,7 +47,7 @@ export const BookingScreen = () => {
             const result = await axios.post('/api/bookings/bookroom', bookingDetails)
             setLoading(false)
             Swal.fire('Congratulations', 'Room has been booked Successfully', 'success').then(result => {
-                window.location.href = '/bookings'
+                window.location.href = '/profile'
             })
         }
         catch (error) {
