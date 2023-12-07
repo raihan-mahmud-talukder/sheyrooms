@@ -4,6 +4,7 @@ import { HomeScreen } from './screens/HomesScreen'
 import { BookingScreen } from './screens/BookingScreen'
 import { LoginScreen } from './screens/LoginScreen'
 import { RegisterScreen } from './screens/RegisterScreen'
+import { ProfileScreen } from './screens/ProfileScreen'
 export const App = () => {
   return (
     <>
@@ -14,6 +15,7 @@ export const App = () => {
           <Route path="/book/:roomid/:checkin/:checkout" element={<BookingScreen />} />
           <Route path='/login' element = {<LoginScreen />} />
           <Route path='/register' element = {<RegisterScreen />} />
+          <Route path='/profile' element = { <ProfileScreen />} />
         </Routes>
       </BrowserRouter>
     </>
