@@ -22,6 +22,9 @@ export const BookingScreen = () => {
 
     useEffect(() => {
         const fetchData = async () => {
+            if (!localStorage.getItem('currentUser')) {
+                window.location = '/login'
+            }
             try {
                 setLoading(true)
                 const data = (await axios.post('/api/rooms/getroombyid', { roomid })).data
