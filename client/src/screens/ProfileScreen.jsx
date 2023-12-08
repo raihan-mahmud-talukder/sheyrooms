@@ -29,7 +29,7 @@ export const ProfileScreen = () => {
   )
 }
 
-export const MyBooking = () => {
+const MyBooking = () => {
   const [bookings, setBookings] = useState([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState()
