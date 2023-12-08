@@ -41,7 +41,33 @@ const Bookings = () => {
             <div className="col-md-10">
                 <h3>Bookings</h3>
                 {loading && <Loader />}
-                {bookings.length && <h5>There are total {bookings.length} bookings</h5>}
+                {bookings.length && <h6>There are total {bookings.length} bookings</h6>}
+                <table className="table table-bordered table-dark">
+                    <thead>
+                        <tr>
+                            <th>Booking Id</th>
+                            <th>User Id</th>
+                            <th>Room</th>
+                            <th>From</th>
+                            <th>To</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {bookings.map(booking => {
+                            return (
+                                <tr key={booking._id}>
+                                    <td>{booking._id}</td>
+                                    <td>{booking.userId}</td>
+                                    <td>{booking.room}</td>
+                                    <td>{booking.checkIn}</td>
+                                    <td>{booking.checkOut}</td>
+                                    <td>{booking.status}</td>
+                                </tr>
+                            )
+                        })}
+                    </tbody>
+                </table>
             </div>
         </div>
     )
