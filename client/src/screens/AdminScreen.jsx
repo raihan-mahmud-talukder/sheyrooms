@@ -5,6 +5,12 @@ import axios from 'axios'
 import { Loader } from "../components/Loader"
 
 export const AdminScreen = () => {
+const admin = JSON.parse(localStorage.getItem('currentUser')).isAdmin
+useEffect(() => {
+    if (!admin) {
+      window.location.href = '/home'
+    }
+  }, [])
     return (
         <div>
             <h1>Admin Panel</h1>
