@@ -11,7 +11,7 @@ export const AdminScreen = () => {
             <Tabs defaultActiveKey="1">
                 <TabPane tab='Bookings' key='1'><Bookings /></TabPane>
                 <TabPane tab='Rooms' key='2'><Rooms /></TabPane>
-                <TabPane tab='Users' key='3'><h3>Users</h3></TabPane>
+                <TabPane tab='Users' key='3'><Users /></TabPane>
                 <TabPane tab='Add Room' key='4'><h3>Add Room</h3></TabPane>
             </Tabs>
         </div>
@@ -152,6 +152,8 @@ const Users = () => {
         <div className="row">
             <div className="col-md-12">
                 <h3>Users</h3>
+                {loading && <Loader />}
+                {users.length && <h6>There are total {users.length} users</h6>}
                 <table className="table table-bordered table-dark">
                     <thead>
                         <tr>
@@ -161,6 +163,18 @@ const Users = () => {
                             <th>Admin</th>
                         </tr>
                     </thead>
+                    <tbody>
+                        {users.length && users.map(user => {
+                            return (
+                                <tr key={user._id}>
+                                    <td>{user._id}</td>
+                                    <td>{user.name}</td>
+                                    <td>{user.email}</td>
+                                    <td>{user.isAdmin ? 'YES' : 'NO'}</td>
+                                </tr>
+                            )
+                        })}
+                    </tbody>
                 </table>
             </div>
         </div>
