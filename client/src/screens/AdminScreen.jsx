@@ -5,12 +5,12 @@ import axios from 'axios'
 import { Loader } from "../components/Loader"
 
 export const AdminScreen = () => {
-const admin = JSON.parse(localStorage.getItem('currentUser')).isAdmin
-useEffect(() => {
-    if (!admin) {
-      window.location.href = '/home'
-    }
-  }, [])
+    const admin = JSON.parse(localStorage.getItem('currentUser')).isAdmin
+    useEffect(() => {
+        if (!admin) {
+            window.location.href = '/home'
+        }
+    }, [])
     return (
         <div>
             <h1>Admin Panel</h1>
@@ -18,7 +18,7 @@ useEffect(() => {
                 <TabPane tab='Bookings' key='1'><Bookings /></TabPane>
                 <TabPane tab='Rooms' key='2'><Rooms /></TabPane>
                 <TabPane tab='Users' key='3'><Users /></TabPane>
-                <TabPane tab='Add Room' key='4'><h3>Add Room</h3></TabPane>
+                <TabPane tab='Add Room' key='4'><AddRoom /></TabPane>
             </Tabs>
         </div>
     )
@@ -182,6 +182,101 @@ const Users = () => {
                         })}
                     </tbody>
                 </table>
+            </div>
+        </div>
+    )
+}
+
+const AddRoom = () => {
+    const [name, setName] = useState()
+    const [rent, setRent] = useState()
+    const [count, setCount] = useState()
+    const [decription, setDescription] = useState()
+    const [phone, setPhone] = useState()
+    const [type, setType] = useState()
+    const [img1, setImg1] = useState()
+    const [img2, setImg2] = useState()
+    const [img3, setImg3] = useState()
+
+    const addRoom = async () => {
+        const newRoom = {
+            name, rent, count, decription, phone, type, image: [img1, img2, img3]
+        }
+        try {
+            const result = (await axios.post('/api/rooms/addroom', newRoom)).data
+            console.log(result)
+        } catch (error) { console.log(error) }
+    }
+    return (
+        <div className="row">
+            <h3>Add Room</h3>
+            <div className="col-md-5">
+                <input
+                    type="text"
+                    className="form-control"
+                    placeholder="room name"
+                    value={name}
+                    onChange={event => setName(event.target.value)}
+                />
+                <input
+                    type="number"
+                    className="form-control"
+                    placeholder="rent per night"
+                    value={rent}
+                    onChange={event => setRent(event.target.value)}
+                />
+                <input
+                    type="number"
+                    className="form-control"
+                    placeholder="max count"
+                    value={count}
+                    onChange={event => setCount(event.target.value)}
+                />
+                <input
+                    type="text"
+                    className="form-control"
+                    placeholder="description"
+                    value={decription}
+                    onChange={event => setDescription(event.target.value)}
+                />
+                <input
+                    type="text"
+                    className="form-control"
+                    placeholder="phone number"
+                    value={phone}
+                    onChange={event => setPhone(event.target.value)}
+                />
+            </div>
+            <div className="col-md-5">
+                <input
+                    type="text"
+                    className="form-control"
+                    placeholder="room type"
+                    value={type}
+                    onChange={event => setType(event.target.value)}
+                />
+                <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Image URL 1"
+                    value={img1}
+                    onChange={event => setImg1(event.target.value)}
+                />
+                <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Image URL 2"
+                    value={img2}
+                    onChange={event => setImg2(event.target.value)}
+                />
+                <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Image URL 3"
+                    value={img3}
+                    onChange={event => setImg3(event.target.value)}
+                />
+                <button className="btn btn-primary add-room" onClick={addRoom}>Add Room</button>
             </div>
         </div>
     )
