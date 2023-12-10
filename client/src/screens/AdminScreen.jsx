@@ -3,6 +3,7 @@ import TabPane from "antd/es/tabs/TabPane"
 import { useEffect, useState } from "react"
 import axios from 'axios'
 import { Loader } from "../components/Loader"
+import Swal from 'sweetalert2'
 
 export const AdminScreen = () => {
     const admin = JSON.parse(localStorage.getItem('currentUser')).isAdmin
@@ -188,11 +189,12 @@ const Users = () => {
 }
 
 const AddRoom = () => {
+    const [loading, setLoading] = useState(false)
     const [name, setName] = useState()
-    const [rent, setRent] = useState()
-    const [count, setCount] = useState()
-    const [decription, setDescription] = useState()
-    const [phone, setPhone] = useState()
+    const [rentPerNight, setRentPerNight] = useState()
+    const [maxCount, setMaxCount] = useState()
+    const [description, setDescription] = useState()
+    const [phoneNumber, setPhoneNumber] = useState()
     const [type, setType] = useState()
     const [img1, setImg1] = useState()
     const [img2, setImg2] = useState()
@@ -200,16 +202,25 @@ const AddRoom = () => {
 
     const addRoom = async () => {
         const newRoom = {
-            name, rent, count, decription, phone, type, image: [img1, img2, img3]
+            name, rentPerNight, maxCount, description, phoneNumber, type, imageUrls: [img1, img2, img3]
         }
         try {
+            setLoading(true)
             const result = (await axios.post('/api/rooms/addroom', newRoom)).data
             console.log(result)
-        } catch (error) { console.log(error) }
+            setLoading(false)
+            Swal.fire('Congrats', 'Room Added Successfully', 'success')
+                .then(result => window.location.href = '/home')
+        } catch (error) {
+            console.log(error)
+            setLoading(false)
+            Swal.fire('Oops', 'Something went wrong', 'error')
+        }
     }
     return (
         <div className="row">
             <h3>Add Room</h3>
+            {loading && <Loader />}
             <div className="col-md-5">
                 <input
                     type="text"
@@ -222,29 +233,29 @@ const AddRoom = () => {
                     type="number"
                     className="form-control"
                     placeholder="rent per night"
-                    value={rent}
-                    onChange={event => setRent(event.target.value)}
+                    value={rentPerNight}
+                    onChange={event => setRentPerNight(event.target.value)}
                 />
                 <input
                     type="number"
                     className="form-control"
                     placeholder="max count"
-                    value={count}
-                    onChange={event => setCount(event.target.value)}
+                    value={maxCount}
+                    onChange={event => setMaxCount(event.target.value)}
                 />
                 <input
                     type="text"
                     className="form-control"
                     placeholder="description"
-                    value={decription}
+                    value={description}
                     onChange={event => setDescription(event.target.value)}
                 />
                 <input
                     type="text"
                     className="form-control"
                     placeholder="phone number"
-                    value={phone}
-                    onChange={event => setPhone(event.target.value)}
+                    value={phoneNumber}
+                    onChange={event => setPhoneNumber(event.target.value)}
                 />
             </div>
             <div className="col-md-5">
